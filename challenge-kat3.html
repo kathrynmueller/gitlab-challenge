@@ -79,6 +79,7 @@
       <span>Member name</span>
       <span>Location</span>
     </div> -->
+
     <div id="wrapper">
 
     	<div id="page-header"></div>
@@ -86,7 +87,7 @@
     	<div id="member-list"></div>
 
 		  <script>
-
+        // DEAR candidate, this is the test data:
         const teamMembers = [
           {
             country: "USA",
@@ -110,13 +111,13 @@
             country: "USA",
             name: "Villi Iltchev",
             locality: "San Francisco, CA",
-            picture: "https://about.gitlab.com/images/team/villi-crop.jpg"
+            picture: "https://about.gitlab.com/images/gitlab-logo-extra-whitespace.png"
           },
           {
             country: "USA",
             name: "Zack Urlocker",
             locality: "San Francisco, CA",
-            picture: "https://about.gitlab.com/images/team/zackurlocker2-crop.jpg"
+            picture: "https://about.gitlab.com/images/gitlab-logo-extra-whitespace.png"
           },
           {
             country: "USA",
@@ -127,6 +128,11 @@
           }
         ];
 
+        /*
+        ==========================================================================
+        DEAR CANDIDATE: Add your javascript below
+        ==========================================================================
+        */
 
         function memberTemplate(member) {
         	return `
@@ -143,9 +149,8 @@
           <p class="intro-text">More than 2,000 people have <a href="http://contributors.gitlab.com/">contributed to GitLab</a>. The GitLab Inc. team consists of the following <strong>${teamMembers.length} team members</strong>. We're an <a href="https://about.gitlab.com/company/culture/all-remote/">all remote organization</a> and we currently have team members in <a href="https://about.gitlab.com/company/team/#countries">54 countries and regions</a>. This page lists who people report to, and on a separate page we detail the <a href="https://about.gitlab.com/company/team/structure/">organizational structure</a> and <a href="https://about.gitlab.com/company/team/org-chart/">organization chart</a>. You can get a sense of the team culture by visiting our <a href="https://about.gitlab.com/company/culture/">culture page</a>.</p>
         	`;
 
-        document.getElementById("member-list").innerHTML = `
-        	${teamMembers.map(memberTemplate).join('')}
-        	`;
+        document.getElementById("member-list").innerHTML = teamMembers.map(memberTemplate).join('');
+
 		  </script>
 		</div>
 	</body>
