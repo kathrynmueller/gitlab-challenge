@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
+
+    <title>GitLab Team List</title>
+
+    <style type="text/css">
+      /*
+      ==========================================================================
+      DEAR CANDIDATE: Add your styles below
+      ==========================================================================
+      */
+
+      #wrapper {
+      	margin: 0 50px 50px 50px;
+      	font-family: 'Open Sans', sans-serif;
+      	text-align: center;
+      }
+
+      a {
+      	text-decoration: none;
+      	color: purple;
+      }
+
+      .header {
+      	font-weight: 300;
+      }
+
+      .extra-bold {
+      	font-weight: 700;
+      	/*color: red;*/
+      }
+
+      .intro-text {
+      	width: 80%;
+      	margin-left: auto;
+      	margin-right: auto;
+      	color: gray;
+      }
+
+      #member-list {
+      	display: grid;
+    		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    		grid-gap: 25px;
+    		margin-top: 50px;
+      }
+
+      .member-picture {
+      	border-radius: 50%;
+      	border: solid 2px gray;
+      	width: 130px;
+      	height: auto;
+      }
+
+      .member-picture:hover {
+      	border-color: purple;
+      }
+
+      h3 {
+      	margin: 0;
+      }
+
+      h4 {
+      	font-weight: normal;
+      	margin: 0;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+	<!-- DEAR candidate, this is the template that should be used: -->
+  <!--     <div class="member-template">
+      <img src="http://lorempixel.com/g/200/200/" />
+      <span>Member name</span>
+      <span>Location</span>
+    </div> -->
+
+    <div id="wrapper">
+
+    	<div id="page-header"></div>
+
+    	<div id="member-list"></div>
+
+		  <script>
+        // DEAR candidate, this is the test data:
+        const teamMembers = [
+          {
+            country: "USA",
+            name: "Matt Walsh",
+            locality: "New York, NY",
+            picture: "https://about.gitlab.com/images/team/matthewwalsh-crop.jpg"
+          },
+          {
+            country: "USA",
+            name: "Zach Holman",
+            locality: "San Francisco, CA",
+            picture: "https://about.gitlab.com/images/team/zach_holman-crop.jpg"
+          },
+          {
+            country: "Greece",
+            name: "George Tsiolis",
+            locality: "Athens",
+            picture: "https://about.gitlab.com/images/team/gtsiolis-crop.jpg"
+          },
+          {
+            country: "USA",
+            name: "Villi Iltchev",
+            locality: "San Francisco, CA",
+            picture: "https://about.gitlab.com/images/gitlab-logo-extra-whitespace.png"
+          },
+          {
+            country: "USA",
+            name: "Zack Urlocker",
+            locality: "San Francisco, CA",
+            picture: "https://about.gitlab.com/images/gitlab-logo-extra-whitespace.png"
+          },
+          {
+            country: "USA",
+            name: "Larry Augustin",
+            locality: "San Francisco, CA",
+            picture:
+              "https://about.gitlab.com/images/team/larry_augustin-crop.jpg"
+          }
+        ];
+
+        /*
+        ==========================================================================
+        DEAR CANDIDATE: Add your javascript below
+        ==========================================================================
+        */
+
+        function memberTemplate(member) {
+        	return `
+        		<div class="member-template">
+        			<a href=${member.picture}><img class="member-picture" src="${member.picture}" alt="${member.name} photo"></a>
+        			<h3 class="member-name">${member.name}</h3>
+        			<h4 class="location">${member.locality}, ${member.country} </h4>
+        		</div>
+        		`
+        }
+
+        document.getElementById("page-header").innerHTML = `
+        	<h1 class="header">MEET OUR <span class="extra-bold">TEAM</span></h1>
+          <p class="intro-text">More than 2,000 people have <a href="http://contributors.gitlab.com/">contributed to GitLab</a>. The GitLab Inc. team consists of the following <strong>${teamMembers.length} team members</strong>. We're an <a href="https://about.gitlab.com/company/culture/all-remote/">all remote organization</a> and we currently have team members in <a href="https://about.gitlab.com/company/team/#countries">54 countries and regions</a>. This page lists who people report to, and on a separate page we detail the <a href="https://about.gitlab.com/company/team/structure/">organizational structure</a> and <a href="https://about.gitlab.com/company/team/org-chart/">organization chart</a>. You can get a sense of the team culture by visiting our <a href="https://about.gitlab.com/company/culture/">culture page</a>.</p>
+        	`;
+
+        document.getElementById("member-list").innerHTML = teamMembers.map(memberTemplate).join('');
+
+		  </script>
+		</div>
+	</body>
+</html>
